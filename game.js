@@ -52,8 +52,17 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-comp = getComputerChoice();
-player = prompt("Enter rock paper or scissors");
-console.log(comp);
-console.log(player);
-console.log(playRound(player,comp));
+function playGame(rounds) {
+    for(let i = 1; i<=rounds; i++){
+        console.log("Round "+i)
+        
+        const player = prompt("Enter rock paper or scissors");
+        const comp = getComputerChoice();
+
+        console.log(`Computer: ${comp}
+        Player: ${player}
+        ${playRound(player,comp)}`);
+    }
+}
+
+playGame(5);
