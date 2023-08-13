@@ -90,6 +90,7 @@ function playRound(playerSelection){
 } else {
         const winner = playerScore > compScore ? "Player wins!" : "Computer Wins!";
         overallResultDiv.textContent = winner;
+        
     }       
 
 }
