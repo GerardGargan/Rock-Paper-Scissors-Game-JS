@@ -25,7 +25,7 @@ function playRound(playerSelection){
     let result = "";
 
     if(playerScore<5 && compScore<5){
-
+        //play 5 rounds
    
 
 
