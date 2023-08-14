@@ -111,7 +111,7 @@ const overallResultDiv = document.querySelector(".overallResult");
 
 rockButton.addEventListener("click", (e) => {
     playRound("rock");
-    playersChoiceDiv.innerHTML = `<img src="/resources/rock.png">`;
+    playersChoiceDiv.innerHTML = `<img src="./resources/rock.png">`;
 });
 
 const paperButton = document.querySelector("#paper");
