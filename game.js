@@ -24,10 +24,6 @@ function playRound(playerSelection){
     let computerSelection = getComputerChoice();
     let result = "";
 
-    if(playerScore<5 && compScore<5){
-        //play 5 rounds
-   
-
 
     if(playerSelection === "rock"){
         if(computerSelection === "rock"){
@@ -87,11 +83,14 @@ function playRound(playerSelection){
 
     resultDiv.innerText = result;
 
-} else {
+    if(playerScore===5 || compScore===5){
+    
         const winner = playerScore > compScore ? "Player wins!" : "Computer Wins!";
         overallResultDiv.textContent = winner;
-        
-    }       
+        rockButton.removeEventListener("click", rockEventHandler);
+        paperButton.removeEventListener("click", paperEventHandler);
+        scissorButton.removeEventListener("click", scissorEventHandler);
+    }   
 
 }
 
@@ -109,20 +108,26 @@ const resultDiv = document.querySelector(".roundResults");
 const rockButton = document.querySelector("#rock");
 const overallResultDiv = document.querySelector(".overallResult");
 
-rockButton.addEventListener("click", (e) => {
+const rockEventHandler = function(){
     playRound("rock");
     playersChoiceDiv.innerHTML = `<img src="./resources/rock.png">`;
-});
+}
 
-const paperButton = document.querySelector("#paper");
-paperButton.addEventListener("click", (e) => {
+const paperEventHandler = function(){
     playRound("paper");
     playersChoiceDiv.innerHTML = `<img src="./resources/paper.png">`;
-});
+}
 
-const scissorButton = document.querySelector("#scissors");
-scissorButton.addEventListener("click", (e) =>{
+const scissorEventHandler = function(){
     playRound("scissors");
     playersChoiceDiv.innerHTML = `<img src="./resources/scissors.png">`;
-})
+}
+
+rockButton.addEventListener("click", rockEventHandler);
+
+const paperButton = document.querySelector("#paper");
+paperButton.addEventListener("click", paperEventHandler);
+
+const scissorButton = document.querySelector("#scissors");
+scissorButton.addEventListener("click", (scissorEventHandler));
 
